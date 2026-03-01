@@ -71,3 +71,4 @@ dog_results = dictionary_dogs()
 compare_sequences(dog_results[0], dog_results[1])
 
 
+def highest_percent_identity(percent_identity_dictionary_for_comparison):
