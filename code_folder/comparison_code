@@ -1,2 +1,3 @@
 def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='mystery.fa'):
     with open(dog_breed_database, 'r') as f_dog_database:
+        with open(mystery_dog_sequence, 'r') as f_mystery_dog:
