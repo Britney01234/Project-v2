@@ -18,7 +18,11 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
 # Adding a new empty entry called dog_str to the dictionary.
                 dog_dictionary[dog_str]=dog_dna
             else:
-                
+# If the line does not start with '>', it is part of the DNA sequence for the current dog breed. 
+                dog_dna+=line.strip()
+
+# 
+
 
 
 
