@@ -40,14 +40,33 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 
     return mystery_str, dog_dictionary
 
+
+
+
+
 def compare_sequences(mystery_sequence_for_comparison, dog_dictionary_for_comparison):
 # Defines variable as an empty dictionary to store the percent identity values for each dog breed.
     percent_identity_dictionary = {}
 # Loops through the dictionary until the end of the dictionary is reached.
-    for dog_breed in dog_dictionary_for_comparison:     
+    for dog_breed in dog_dictionary_for_comparison:  
+# Defines variable as an empty string to store the DNA sequence for the current dog breed being compared.
+        dog_breed_dna = dog_dictionary_for_comparison[dog_breed]  
+# Defines variable as an integer to count the number of matching characters between the mystery sequence and the current dog breed sequence.
+        match_count = 0
+# Loops through the DNA sequence of the current dog breed and compares it to the mystery sequence one character at a time.
+        for i in range(min(len(mystery_sequence_for_comparison), len(dog_breed_dna))):
+# If the characters at the current position in both sequences match, the match count is incremented by 1.
+            if mystery_sequence_for_comparison[i] == dog_breed_dna[i]: 
+                match_count += 1
+# After comparing the sequences, the percent identity is calculated by dividing the match count by the length of the shorter sequence and multiplying by 100 to get a percentage.
+        percent_identity = (match_count / min(len(mystery_sequence_for_comparison), len(dog_breed_dna))) * 100
+# The percent identity value is stored in the percent identity dictionary with the dog breed as the key and the percent identity as the value.
+        percent_identity_dictionary[dog_breed] = percent_identity
+# After all dog breeds have been compared, the percent identity dictionary is returned.
+    return percent_identity_dictionary
 
 
 
+compare_sequences(dictionary_dogs()[0, 1]) 
 
-dictionary_dogs()
 
