@@ -40,4 +40,8 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 
     return mystery_str, dog_dictionary
 
+def compare_sequences(input_mystery_str, input_dog_dictionary):
+
+
 dictionary_dogs()
+
