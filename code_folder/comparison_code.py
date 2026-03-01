@@ -37,3 +37,5 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
 
 
     return mystery_str, dog_dictionary
+
+compare_sequences()
