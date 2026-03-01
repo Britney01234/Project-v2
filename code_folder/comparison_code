@@ -2,4 +2,5 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
     dog_dictionary = {}
     
     with open(dog_breed_database, 'r') as f_dog_database:    
-        
+        for line in f_dog_database: 
+            
