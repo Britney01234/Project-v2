@@ -1,1 +1,1 @@
-def compare_sequences(filename='dog_breeds.fa'):
+def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='mystery.fa'):
