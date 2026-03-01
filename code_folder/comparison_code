@@ -27,8 +27,13 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
     with open(mystery_dog_sequence, 'r') as f_mystery_dog:
 # Defines variable as an empty string to have the mystery dog DNA sequence stored in it.
         mystery_str=''
+# Loops over file one line at a time until the end of the file.
+        for line in f_mystery_dog:
 # Ignoring the first line of the mystery sequence as it isn't part of the DNA sequence needed to be compared.
-        if line.startswith('>')==False:
+            if line.startswith('>')==False: 
+# Adding the next line of the sequence to the string and removing unneceassy characters. 
+                mystery_str+=line.strip()
+
 
            
 
