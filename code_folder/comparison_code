@@ -13,6 +13,9 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
             if line.startswith('>'):
 # Storing the current dog breed information to be used in the dictionary later.
                 dog_str=line
+# Everytime a new dog breed in found, the DNA variable is reset to an empty string.
+                dog_dna=''
+
 
 
 
