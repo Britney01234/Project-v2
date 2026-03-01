@@ -9,7 +9,7 @@
 #- think of what functions are needed - getting there, main functions for the main task have been planned out, functions for stretch goals to still be considered.
 #- ensure the data files can be found and opened (added a pathway for it to work on my computer, but should remov e this when uploading)
 #- need to write third function to find the highest percntage and output that sequnece
-#- need to write forth function to output it all in the results folder, a bar graph would be good
+#- need to write forth function to output it all in the results folder, a bar graph could be good, but might be too big
  
 
 #References/Research used:
