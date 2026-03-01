@@ -17,6 +17,8 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
                 dog_dna=''
 # Adding a new empty entry called dog_str to the dictionary.
                 dog_dictionary[dog_str]=dog_dna
+            else:
+                
 
 
 
