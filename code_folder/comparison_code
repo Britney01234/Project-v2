@@ -3,9 +3,12 @@ def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='m
     dog_dictionary = {}
 # Opens the dog breed database file. 
     with open(dog_breed_database, 'r') as f_dog_database: 
+# Defines variable as an empty string to add into dictionary later.
+        dog_str=''
 # Loops over file one line at a time until the nd of the file.   
         for line in f_dog_database:
 # If the line starts with '>', it indicates the start of a new dog breed. 
             if line.startswith('>'):
+
                
 
