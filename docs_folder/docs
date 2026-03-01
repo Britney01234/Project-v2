@@ -6,9 +6,10 @@
 #- upload the provided sequences and save them in a separte folder - done, saved in Data Folder
 #- think of the output - done, the dog breed that matches the cloest to the mystery sequence and a percentage of the different between them, this should be outputted in the results folder. 
 #- think of what tests to do - unti and intergration needed, more than one unit test and at least one intergration test needed.
-#- think of what functions are needed
-#- ensure the data files can be found and opened
-#- 
+#- think of what functions are needed - getting there, main functions for the main task have been planned out, functions for stretch goals to still be considered.
+#- ensure the data files can be found and opened (added a pathway for it to work on my computer, but should remov e this when uploading)
+#- need to write third function to find the highest percntage and output that sequnece
+#- need to write forth function to output it all in the results folder, a bar graph would be good
  
 
 #References/Research used:

@@ -63,10 +63,11 @@ def compare_sequences(mystery_sequence_for_comparison, dog_dictionary_for_compar
 # The percent identity value is stored in the percent identity dictionary with the dog breed as the key and the percent identity as the value.
         percent_identity_dictionary[dog_breed] = percent_identity
 # After all dog breeds have been compared, the percent identity dictionary is returned.
+    
     return percent_identity_dictionary
 
 
-
-compare_sequences(dictionary_dogs()[0, 1]) 
+dog_results = dictionary_dogs()
+compare_sequences(dog_results[0], dog_results[1])
 
 
