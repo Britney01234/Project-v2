@@ -1,0 +1,15 @@
+# Check list:
+# - initalise repo via Github - done
+#- decide on environment - done, VSC chosen
+#- decide on library - done, BioPython to be used
+#- create folders - done
+#- upload the provided sequences and save them in a separte folder - done, saved in Data Folder
+#- think of the output - done, the dog breed that matches the cloest to the mystery sequence and a percentage of the different between them, this should be outputted in the results folder. 
+#- think of what tests to do - unti and intergration needed, more than one unit test and at least one intergration test needed.
+#- think of what functions are needed
+#- ensure the data files can be found and opened
+#- 
+ 
+
+#References/Research used:
+# - 
