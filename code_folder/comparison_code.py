@@ -1,4 +1,4 @@
-def compare_sequences(dog_breed_database='dog_breeds.fa',mystery_dog_sequence='mystery.fa'):
+def compare_sequences(dog_breed_database='../data_folder/dog_breeds.fa',mystery_dog_sequence='../data_folder/mystery.fa'):
 # Defines variable as an empty dictionary to store the dog breed information from the database.
     dog_dictionary = {}
 # Opens the dog breed database file. 
