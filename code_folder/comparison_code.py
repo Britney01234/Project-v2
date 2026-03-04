@@ -85,3 +85,6 @@ def highest_percent_identity(percent_identity_dictionary_for_comparison):
 # After looping through all the dog breeds, the dog breed with the highest percent identity and its corresponding percent identity value are returned as a tuple.       
         return highest_percent_identity_dog, highest_percent_identity_value
     
+    
+percent_identity_results = compare_sequences(dog_results[0], dog_results[1])
+highest_percent_identity(percent_identity_results)
