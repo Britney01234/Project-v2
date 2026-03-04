@@ -42,8 +42,6 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 
 
 
-
-
 def compare_sequences(mystery_sequence_for_comparison, dog_dictionary_for_comparison):
 # Defines variable as an empty dictionary to store the percent identity values for each dog breed.
     percent_identity_dictionary = {}
