@@ -35,10 +35,9 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 # Adding the next line of the sequence to the string and removing unneceassy characters. 
                 mystery_str+=line.strip()
 
-
-
-
     return mystery_str, dog_dictionary
+
+
 
 
 
@@ -68,7 +67,8 @@ def compare_sequences(mystery_sequence_for_comparison, dog_dictionary_for_compar
 dog_results = dictionary_dogs()
 compare_sequences(dog_results[0], dog_results[1])
 
-
+# This function stops the other functions from outputting the dictionary which is wrong. It needs to output the dictionary too...
+# ... so need to find a fix for this. 
 def highest_percent_identity(percent_identity_dictionary_for_comparison):
 # Defines variable as an empty string to store the dog breed with the highest percent identity.
     highest_percent_identity_dog = ''   
