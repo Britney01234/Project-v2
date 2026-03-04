@@ -86,3 +86,29 @@ def highest_percent_identity(percent_identity_dictionary_for_comparison):
     
 percent_identity_results = compare_sequences(dog_results[0], dog_results[1])
 highest_percent_identity(percent_identity_results)
+
+import matplotlib.pyplot as plt
+def plot_percent_identity(percent_identity_dictionary_for_plotting):
+# Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
+    dog_breeds = []
+# Defines variable as an empty list to store the percent identity values for the y-axis of the plot.
+    percent_identity_values = []
+# Loops through the percent identity dictionary until the end of the dictionary is reached.
+    for dog_breed in percent_identity_dictionary_for_plotting:
+# Appends the current dog breed to the dog breeds list and its corresponding percent identity value to the percent identity values list.
+        dog_breeds.append(dog_breed)
+        percent_identity_values.append(percent_identity_dictionary_for_plotting[dog_breed]) 
+# Creates a bar plot using the dog breeds as the x-axis and the percent identity values as the y-axis.
+    plt.bar(dog_breeds, percent_identity_values)
+# Sets the title and labels for the plot.
+    plt.title('Percent Identity of Mystery Dog to Each Dog Breed')
+    plt.xlabel('Dog Breeds')
+    plt.ylabel('Percent Identity (%)')
+# Rotates the x-axis labels for better readability.
+    plt.xticks(rotation=90)
+# Displays the plot.
+    plt.show()
+
+    return percent_identity_dictionary_for_plotting
+
+plot_percent_identity(percent_identity_results)
