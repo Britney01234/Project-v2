@@ -72,3 +72,16 @@ compare_sequences(dog_results[0], dog_results[1])
 
 
 def highest_percent_identity(percent_identity_dictionary_for_comparison):
+# Defines variable as an empty string to store the dog breed with the highest percent identity.
+    highest_percent_identity_dog = ''   
+# Defines variable as a float to store the highest percent identity value found during the comparison.
+    highest_percent_identity_value = 0.0
+# Loops through the percent identity dictionary until the end of the dictionary is reached.
+    for dog_breed in percent_identity_dictionary_for_comparison:
+# If the percent identity value for the current dog breed is higher than the highest percent identity value found so far, the highest percent identity value and the corresponding dog breed are updated.
+        if percent_identity_dictionary_for_comparison[dog_breed] > highest_percent_identity_value:
+            highest_percent_identity_value = percent_identity_dictionary_for_comparison[dog_breed]
+            highest_percent_identity_dog = dog_breed
+# After looping through all the dog breeds, the dog breed with the highest percent identity and its corresponding percent identity value are returned as a tuple.       
+        return highest_percent_identity_dog, highest_percent_identity_value
+    
