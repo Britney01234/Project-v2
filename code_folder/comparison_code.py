@@ -87,6 +87,12 @@ def highest_percent_identity(percent_identity_dictionary_for_comparison):
 percent_identity_results = compare_sequences(dog_results[0], dog_results[1])
 highest_percent_identity(percent_identity_results)
 
+
+
+
+# The plot is really messy and hard to read...
+# ... need to come back to this to fix it. 
+# Also need to output it in the file results_folder.
 import matplotlib.pyplot as plt
 def plot_percent_identity(percent_identity_dictionary_for_plotting):
 # Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
