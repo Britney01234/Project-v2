@@ -63,7 +63,7 @@ def compare_sequences(mystery_sequence_for_comparison, dog_dictionary_for_compar
     
     return percent_identity_dictionary
 
- mystery, dog_dictionary = dictionary_dogs()
+mystery, dog_dictionary = dictionary_dogs()
 results = compare_sequences(mystery, dog_dictionary)
 
 # trying to write output code
@@ -71,8 +71,8 @@ with open ("dog_results.txt", "w") as f:
     f.write("DNA Comparison Results\n")
     f.write("="*30+"\n")
 
-for breed, percentage in results.items():
-    f.write(f"{breed.strip()}:{percentage:.2f}%\n")
+    for breed, percentage in results.items():
+        f.write(f"{breed.strip()}:{percentage:.2f}%\n")
 
 dog_results = dictionary_dogs()
 compare_sequences(dog_results[0], dog_results[1])
