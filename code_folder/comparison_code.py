@@ -93,10 +93,11 @@ highest_percent_identity(percent_identity_results)
 # The plot is really messy and hard to read...
 # ... need to come back to this to fix it. 
 # Also need to output it in the file results_folder.
-import matplotlib.pyplot as plt
+
 def plot_percent_identity(percent_identity_dictionary_for_plotting):
 # Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
     dog_breeds = []
+    import matplotlib.pyplot as plt
 # Defines variable as an empty list to store the percent identity values for the y-axis of the plot.
     percent_identity_values = []
 # Loops through the percent identity dictionary until the end of the dictionary is reached.
