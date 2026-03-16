@@ -63,9 +63,17 @@ def compare_sequences(mystery_sequence_for_comparison, dog_dictionary_for_compar
     
     return percent_identity_dictionary
 
+with open ("dog_results.txt", "w") as f:
+    f.write("DNA Comparison Results\n")
+    f.write("="*30+"\n")
+
+for breed, percentage in results.items():
+    f.write(f"{breed.strip()}:{percentage:.2f}%\n")
 
 dog_results = dictionary_dogs()
 compare_sequences(dog_results[0], dog_results[1])
+
+print("finished")
 
 # This function stops the other functions from outputting the dictionary which is wrong. It needs to output the dictionary too...
 # ... so need to find a fix for this. 
@@ -94,10 +102,11 @@ highest_percent_identity(percent_identity_results)
 # ... need to come back to this to fix it. 
 # Also need to output it in the file results_folder.
 
+import matplotlib.pyplot as plt
+
 def plot_percent_identity(percent_identity_dictionary_for_plotting):
 # Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
     dog_breeds = []
-    import matplotlib.pyplot as plt
 # Defines variable as an empty list to store the percent identity values for the y-axis of the plot.
     percent_identity_values = []
 # Loops through the percent identity dictionary until the end of the dictionary is reached.
