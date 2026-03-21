@@ -1,3 +1,4 @@
+import re
 # Had to add full pathway for VSC to be able to read and open the file.
 def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\project_dog_dna\\project_dog_dna\\dog_breeds.fa',mystery_dog_sequence='C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\project_dog_dna\\project_dog_dna\\mystery.fa'):
 # Defines variable as an empty dictionary to store the dog breed information from the database.
@@ -13,6 +14,14 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 # If the line starts with '>', it indicates the start of a new dog breed. 
             if line.startswith('>'):
 # Storing the current dog breed information to be used in the dictionary later.
+
+
+                newChallenger = re.search(r"breed[=\s]([^,\]])",line)
+                
+                print(newChallenger)
+
+
+
                 dog_str=line
 # Everytime a new dog breed in found, the DNA variable is reset to an empty string.
                 dog_dna=''
@@ -118,7 +127,7 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
         dog_breeds.append(dog_breed)
         percent_identity_values.append(percent_identity_dictionary_for_plotting[dog_breed]) 
 # Creates a bar plot using the dog breeds as the x-axis and the percent identity values as the y-axis.
-    plt.ylim([98,100])
+    plt.ylim([99.65,100])
     plt.bar(dog_breeds, percent_identity_values)
 # Sets the title and labels for the plot.
     plt.title('Percent Identity of Mystery Dog to Each Dog Breed')
