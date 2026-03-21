@@ -112,6 +112,7 @@ highest_percent_identity(percent_identity_results)
 # Also need to output it in the file results_folder.
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 def plot_percent_identity(percent_identity_dictionary_for_plotting):
 # Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
@@ -133,7 +134,7 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
     plt.ylabel('Percent Identity (%)')
 # Rotates the x-axis labels for better readability.
     plt.xticks(rotation=45,ha="right")
-    #plt.rc('xtick',labelsize=5)
+    plt.rc('xtick',labelsize=9)
     plt.rc("ytick",labelsize=9)
 # Look back at this as it hasn't worked
     plt.tight_layout()
