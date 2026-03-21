@@ -15,8 +15,8 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
             if line.startswith('>'):
 # Storing the current dog breed information to be used in the dictionary later.
 
-
-                newChallenger = re.search(r"breed[=\s]([^,\]])",line)
+# Removing other characters to only display the dog breed
+                newChallenger = re.search(r"breed[=\s]([^,\]]+)",line)
                 
                 print(newChallenger)
 
