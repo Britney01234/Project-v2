@@ -21,7 +21,7 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 # Storing the current dog breed information to be used in the dictionary later.
                 dog_dna=''
 # Everytime a new dog breed in found, the DNA variable is reset to an empty string.
-                dog_str=line
+                dog_str=newChallenger+","+isolate
 # Adding a new empty entry called dog_str to the dictionary.
                 dog_dictionary[dog_str]=dog_dna
             else:
@@ -125,13 +125,14 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
         percent_identity_values.append(percent_identity_dictionary_for_plotting[dog_breed]) 
 # Creates a bar plot using the dog breeds as the x-axis and the percent identity values as the y-axis.
     plt.ylim([99.65,100])
-    plt.bar(dog_breeds, percent_identity_values)
+    plt.bar(dog_breeds, percent_identity_values,width=0.5)
 # Sets the title and labels for the plot.
     plt.title('Percent Identity of Mystery Dog to Each Dog Breed')
     plt.xlabel('Dog Breeds')
     plt.ylabel('Percent Identity (%)')
 # Rotates the x-axis labels for better readability.
-    plt.xticks(rotation=90)
+    plt.xticks(rotation=45,ha="right")
+    plt.rc('xtick',size=5)
 # Look back at this as it hasn't worked
     plt.tight_layout()
 # Displays the plot.
