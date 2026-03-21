@@ -79,8 +79,7 @@ compare_sequences(dog_results[0], dog_results[1])
 
 print("finished")
 
-# This function stops the other functions from outputting the dictionary which is wrong. It needs to output the dictionary too...
-# ... so need to find a fix for this. 
+
 def highest_percent_identity(percent_identity_dictionary_for_comparison):
 # Defines variable as an empty string to store the dog breed with the highest percent identity.
     highest_percent_identity_dog = ''   
@@ -119,6 +118,7 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
         dog_breeds.append(dog_breed)
         percent_identity_values.append(percent_identity_dictionary_for_plotting[dog_breed]) 
 # Creates a bar plot using the dog breeds as the x-axis and the percent identity values as the y-axis.
+    plt.ylim([98,100])
     plt.bar(dog_breeds, percent_identity_values)
 # Sets the title and labels for the plot.
     plt.title('Percent Identity of Mystery Dog to Each Dog Breed')
