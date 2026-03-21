@@ -124,6 +124,7 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
         dog_breeds.append(dog_breed)
         percent_identity_values.append(percent_identity_dictionary_for_plotting[dog_breed]) 
 # Creates a bar plot using the dog breeds as the x-axis and the percent identity values as the y-axis.
+    plt.figure(figsize=(14,7))
     plt.ylim([99.65,100])
     plt.bar(dog_breeds, percent_identity_values,width=0.5)
 # Sets the title and labels for the plot.
@@ -132,11 +133,13 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
     plt.ylabel('Percent Identity (%)')
 # Rotates the x-axis labels for better readability.
     plt.xticks(rotation=45,ha="right")
-    plt.rc('xtick',size=5)
+    #plt.rc('xtick',labelsize=5)
+    plt.rc("ytick",labelsize=9)
 # Look back at this as it hasn't worked
     plt.tight_layout()
 # Displays the plot.
     plt.show()
+    plt.savefig('Graph_of_dog.png')
 
     return percent_identity_dictionary_for_plotting
 
