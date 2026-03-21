@@ -13,15 +13,11 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
         for line in f_dog_database:
 # If the line starts with '>', it indicates the start of a new dog breed. 
             if line.startswith('>'):
-# Storing the current dog breed information to be used in the dictionary later.
-
 # Removing other characters to only display the dog breed
                 newChallenger = re.search(r"breed[=\s]([^,\]]+)",line)
-                
+# Troubleshooting
                 print(newChallenger)
-
-
-
+# Storing the current dog breed information to be used in the dictionary later.
                 dog_str=line
 # Everytime a new dog breed in found, the DNA variable is reset to an empty string.
                 dog_dna=''
