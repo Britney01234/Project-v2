@@ -112,7 +112,8 @@ highest_percent_identity(percent_identity_results)
 # Also need to output it in the file results_folder.
 
 import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.ticker as mtick
+from matplotlib.ticker import FormatStrFormatter 
 
 def plot_percent_identity(percent_identity_dictionary_for_plotting):
 # Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
@@ -126,8 +127,11 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
         percent_identity_values.append(percent_identity_dictionary_for_plotting[dog_breed]) 
 # Creates a bar plot using the dog breeds as the x-axis and the percent identity values as the y-axis.
     plt.figure(figsize=(14,7))
-    plt.ylim([99.65,100])
+    min_val = min(percent_identity_values)
+    max_val = max(percent_identity_values)
+    plt.ylim([min_val - 0.005, max_val + 0.001])
     plt.bar(dog_breeds, percent_identity_values,width=0.5)
+    plt.gca().yaxis.set_major_formatter(mtick.FormatStrFormatter('%.5f'))
 # Sets the title and labels for the plot.
     plt.title('Percent Identity of Mystery Dog to Each Dog Breed')
     plt.xlabel('Dog Breeds')
