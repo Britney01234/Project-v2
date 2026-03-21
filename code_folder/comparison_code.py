@@ -15,6 +15,7 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
             if line.startswith('>'):
 # Removing other characters to only display the dog breed
                 newChallenger = re.search(r"breed[=\s]([^,\]]+)",line)
+                newChallenger = 
 # Troubleshooting
                 print(newChallenger)
 # Storing the current dog breed information to be used in the dictionary later.
@@ -131,6 +132,8 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
     plt.ylabel('Percent Identity (%)')
 # Rotates the x-axis labels for better readability.
     plt.xticks(rotation=90)
+# Look back at this as it hasn't worked
+    plt.tight_layout()
 # Displays the plot.
     plt.show()
 
