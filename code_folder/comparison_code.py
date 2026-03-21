@@ -16,7 +16,7 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
 
                 newChallenger = re.search(r"breed[=\s]([^,\]]+)",line)
                 newChallenger = newChallenger.group(1)
-                isolate = re.search(r"breed[=\s]([^,\]]+)",line)
+                isolate = re.search(r"isolate[=\s]([^,\]]+)",line)
                 isolate = isolate.group(1)
 # Storing the current dog breed information to be used in the dictionary later.
                 dog_dna=''
