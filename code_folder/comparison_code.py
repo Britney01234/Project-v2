@@ -139,8 +139,9 @@ def plot_percent_identity(percent_identity_dictionary_for_plotting):
 # Look back at this as it hasn't worked
     plt.tight_layout()
 # Displays the plot.
-    plt.show()
     plt.savefig('Graph_of_dog.png')
+    plt.show()
+    
 
     return percent_identity_dictionary_for_plotting
 
