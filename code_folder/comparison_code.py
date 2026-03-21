@@ -13,11 +13,6 @@ def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformat
         for line in f_dog_database:
 # If the line starts with '>', it indicates the start of a new dog breed. 
             if line.startswith('>'):
-# Removing other characters to only display the dog breed
-                newChallenger = re.search(r"breed[=\s]([^,\]]+)",line)
-                newChallenger = newChallenger.group(1)
-# Troubleshooting
-                print(newChallenger)
 # Storing the current dog breed information to be used in the dictionary later.
                 dog_str=line
 # Everytime a new dog breed in found, the DNA variable is reset to an empty string.
@@ -114,6 +109,8 @@ highest_percent_identity(percent_identity_results)
 import matplotlib.pyplot as plt
 
 def plot_percent_identity(percent_identity_dictionary_for_plotting):
+    newChallenger = re.search(r"breed[=\s]([^,\]]+)",line)
+    newChallenger = newChallenger.group(1)
 # Defines variable as an empty list to store the dog breeds for the x-axis of the plot.
     dog_breeds = []
 # Defines variable as an empty list to store the percent identity values for the y-axis of the plot.
