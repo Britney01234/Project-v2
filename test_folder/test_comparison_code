@@ -1,0 +1,186 @@
+import unittest
+import sys
+import os
+import re
+
+
+# Able to call functions from code.
+sys.path.append(os.path.abspath("../code_folder"))
+from comparison_code import * 
+
+# File path would be
+test_sequence_file_path = 'C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\test_folder\\test_sequence.txt'
+
+# Defines variable as an empty dictionary to store the dog breed information from the database.
+dog_dictionary = {}
+# Defines variable as an empty string to have the mystery dog DNA sequence stored in it.
+mystery_str = ''
+
+# Opens test sequence file.
+with open(test_sequence_file_path, 'r') as f:
+# Defines variable as an empty string to store the current breed in.
+    current_breed = ''
+#  # Loops over file one line at a time until the end of the file.  
+    for line in f:
+        line = line.strip()
+        if not line: continue 
+# If the line starts with '>', it indicates the start of a new dog breed. 
+        if line.startswith('>'):
+            if current_breed:
+                dog_dictionary[current_breed] = current_dna
+# Separated sequence is the current dog breed being tested.
+            current_breed = line 
+# Defines variable as an empty string to store the current dna in.
+            current_dna = ''
+        else:
+            current_dna += line
+            mystery_str += line
+    if current_breed:
+        dog_dictionary[current_breed] = current_dna
+
+# Imported from comparison_code file.
+results = compare_sequences(mystery_str, dog_dictionary)
+
+# Will show in the terminal to see if the test has passed or failed. 
+print("\n Running Exact Match Test")
+match_found = False
+# Checks that test sequence code is in the dictionary.
+print(len(results), " entries")
+for breed, (percentage, p_value, match_count) in results.items():
+    if percentage == 100.0:
+        print(f"Pass: an exact 100% match found for: {breed.strip()}")
+        match_found = True
+    else:
+        print(f"Fail: Match for {breed.strip()} was {percentage:.2f}%")
+if not match_found:
+    print("No 100% match found. Look again")
+
+
+
+# Able to call functions from code.
+sys.path.append(os.path.abspath("../code_folder"))
+from comparison_code import dictionary_dogs,compare_sequences 
+
+# Runs the loading function by ignoring the mystery DNA and storing the database.
+_, real_dog_db = dictionary_dogs()
+#Creates a fake sequence that will never match.
+zero_match_mystery = "XXXXXXXXXX" 
+# Compares the fake sequence to the dictionary.
+results = compare_sequences(zero_match_mystery, real_dog_db)
+
+# Will show in the terminal to see if the test has passed or failed. 
+print(f"\n Running 0% Match Test on {len(real_dog_db)} Breeds ")
+for breed, (percentage, p_value, match_count) in results.items():
+    if percentage == 0.0:
+        print(f"Pass: {breed.strip()} match is {percentage:.2f}%")
+    else:
+        print(f"Fail: {breed.strip()} match is {percentage:.2f}%")
+
+
+import pytest
+# Able to call functions from code.
+sys.path.append(os.path.abspath("../code_folder"))
+from comparison_code import  highest_percent_identity
+
+def test_highest_percent_identity():
+# Creates a sample dictionary with a highest percnetage identity.
+    test_data = {
+        "Labrador": (85.2, 0.01, "extra"),
+        "Beagle": (90.5, 0.02, "extra"),
+        "Poodle": (88.7, 0.03, "extra")
+    }
+# Calls function and unpacks tuple into two functions.
+    breed, value = highest_percent_identity(test_data)
+# Checks breed and percentage that has been called are correct.
+    assert breed == "Beagle", "Expected Beagle to have the highest percent identity"
+    assert value == 90.5, "Expected highest percent identity value to be 90.5"
+
+
+
+def test_highest_percent_identity_empty():
+# Tests what would happen if the function is called with an empty dictionary.
+    result = highest_percent_identity({})
+    assert result == ("", 0.0)
+
+
+
+def test_highest_percent_identity_tie():
+# Creates a sample dictionary with a highest percnetage identity
+    test_data = {
+        "Husky": (92.0, 0.01, None),
+        "Dalmatian": (92.0, 0.02, None)
+    }
+# Calls function and unpacks tuple into two functions.
+    breed, value = highest_percent_identity(test_data)
+# Function returns the first max encountered
+    assert breed == "Husky"
+    assert value == 92.0
+
+
+import pytest
+from scipy import stats
+from comparison_code import calculate_p_value
+
+
+def test_calculate_p_value_():
+    
+# Using controlled values to compute the expected p‑value.
+    match_count = 5
+    total_length = 10
+
+# Defines as expected p value.
+    expected = stats.binom.sf(match_count - 1, total_length, 0.25)
+    result = calculate_p_value(match_count, total_length)
+#Comparing the function output to the expected statistical value.
+    assert result == expected, "P-value calculation does not match expected binomial SF result"
+
+
+def test_calculate_p_value_zero_matches():
+# If match_count is 0, the probability of the answer being more than 0 should be 1.
+    result = calculate_p_value(0, 10)
+    assert result == 1.0
+
+
+import pytest
+from unittest.mock import mock_open, patch
+from comparison_code import dictionary_dogs
+
+def test_dictionary_dogs_parsing():
+# Creates a false dicitionary.
+    fake_dog_fasta = (
+        ">breed=Husky, isolate=A1\n"
+        "ATCG\n"
+        "GGTA\n"
+        ">breed=Beagle isolate=B2\n"
+        "TTTT\n"
+    )
+# Creates a false myserty sequence.
+    fake_mystery_fasta = (
+        ">mystery dog\n"
+        "AACCGG\n"
+    )
+    mock_files = {
+        "dog_breeds.fa": fake_dog_fasta,
+        "mystery.fa": fake_mystery_fasta
+    }
+# Custom mock open selector that chooses the correct file.
+    def mock_file_selector(filepath, *args, **kwargs):
+        filename = filepath.split("\\")[-1]  
+        return mock_open(read_data=mock_files[filename])()
+
+# Allows both files to use the samples.
+    with patch("builtins.open", mock_file_selector):
+        mystery_seq, dog_dict = dictionary_dogs(
+            dog_breed_database="dog_breeds.fa",
+            mystery_dog_sequence="mystery.fa"
+        )
+# Assertions for py test: mystery sequence parsed correctly, og dictionary contains expected keys and DNA sequences concatenated correctly.
+    assert mystery_seq == "AACCGG"
+    assert "Husky,A1" in dog_dict
+    assert "Beagle,B2" in dog_dict
+    assert dog_dict["Husky,A1"] == "ATCGGGTA"
+    assert dog_dict["Beagle,B2"] == "TTTT"
+# Allows the viewing of passing or failing pytests in VSC terminal.
+if __name__ == "__main__":
+    import pytest
+    pytest.main(["-sv"])
