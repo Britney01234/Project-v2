@@ -1,4 +1,22 @@
 #### Project V2 ####
+Project-v2
+
+Aim of project:
+
+- Compare a sequence of DNA (see dog_breeds.fa) to the one provided (see mystery.fa in data folder).
+- Code should produce the most similiar sequence AND the difference between the result and the provided sequence.
+
+Additional aims if able:
+
+- Look at possibilities across databases
+- Create p-values
+- Reconstruct phylogeny
+
+Folders present:
+code_folder - contains the main code of the project.
+data_folder - contains data provided from external source.
+results_folder - contains dictionary of percentage identify to mystery sequence, as well as a graph once script has run.
+test_folder - contains tests for each of the functions in comparison_code.
 
 
 Functions Present in comparison_code:
