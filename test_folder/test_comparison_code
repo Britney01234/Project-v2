@@ -4,8 +4,17 @@ import os
 import re
 
 
+# Allows for the code to run.
+path = "C:/Users/15bcl/Documents/Bioinformatics/Biocomputing/Project Files/code_folder"
+print("Folder exists:", os.path.isdir(path))
+print("Contents:", os.listdir(path))
+# Enables pytests to be found using an absolute path.
+os.chdir("C:/Users/15bcl/Documents/Bioinformatics/Biocomputing/Project Files")
+print("Now working in:", os.getcwd())
+
+
 # Able to call functions from code.
-sys.path.append(os.path.abspath("../code_folder"))
+sys.path.append("C:/Users/15bcl/Documents/Bioinformatics/Biocomputing/Project Files/code_folder")
 from comparison_code import * 
 
 # File path would be
