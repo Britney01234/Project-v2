@@ -1,8 +1,8 @@
 import re
 # Had to add full pathway for VSC to be able to read and open the file.
-#def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\data_folder\\project_dog_dna\\dog_breeds.fa',mystery_dog_sequence='C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\data_folder\\project_dog_dna\\mystery.fa'):# Correct filepath can be found below in a comment. 
+def dictionary_dogs(dog_breed_database='C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\data_folder\\project_dog_dna\\dog_breeds.fa',mystery_dog_sequence='C:\\Users\\15bcl\\Documents\\Bioinformatics\\Biocomputing\\Project Files\\data_folder\\project_dog_dna\\mystery.fa'):# Correct filepath can be found below in a comment. 
 
-def dictionary_dogs(dog_breed_database='../data_folder/project_dog_dna/dog_breeds.fa',mystery_dog_sequence='../data_folder/project_dog_dna/mystery.fa'):
+#def dictionary_dogs(dog_breed_database='../data_folder/dog_breeds.fa',mystery_dog_sequence='../data_folder/mystery.fa'):
 
 # Defines variable as an empty dictionary to store the dog breed information from the database.
     dog_dictionary = {}
@@ -98,6 +98,8 @@ def highest_percent_identity(percent_identity_dictionary_for_comparison):
     return highest_percent_identity_dog, highest_percent_identity_value
 
 import math
+import os
+os.makedirs("../results_folder", exist_ok=True)
 
 # Opening a new file to write in.
 with open ("../results_folder/dog_results.txt", "w") as f:
